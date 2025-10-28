@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Auto's Bright Design System - Bold Red & Black Automotive */
+
+@layer base {
+  :root {
+    /* Base colors - Dark background by default */
+    --background: 330 4% 13%;
+    --foreground: 0 0% 99%;
+
+    /* Card system */
+    --card: 359 35% 42%;
+    --card-foreground: 0 0% 99%;
+
+    /* Popover system */
+    --popover: 330 4% 13%;
+    --popover-foreground: 0 0% 99%;
+
+    /* Primary - Bold red (#ba1010) */
+    --primary: 0 84% 40%;
+    --primary-foreground: 0 0% 99%;
+    --primary-hover: 358 78% 19%;
+
+    /* Secondary - Dark background (#211f20) */
+    --secondary: 359 35% 42%;
+    --secondary-foreground: 0 0% 99%;
+
+    /* Muted tones */
+    --muted: 359 35% 42%;
+    --muted-foreground: 300 4% 81%;
+
+    /* Accent - Bright red (#ce1e1e) */
+    --accent: 0 75% 46%;
+    --accent-foreground: 0 0% 99%;
+    --accent-hover: 358 68% 35%;
+
+    /* Status colors */
+    --destructive: 358 68% 35%;
+    --destructive-foreground: 0 0% 99%;
+    --success: 120 40% 50%;
+    --success-foreground: 0 0% 99%;
+
+    /* Border and input */
+    --border: 359 35% 42%;
+    --input: 359 35% 42%;
+    --ring: 0 84% 40%;
+
+    /* Bold gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(0 84% 40%), hsl(358 68% 35%));
+    --gradient-accent: linear-gradient(135deg, hsl(0 75% 46%), hsl(0 84% 40%));
+    --gradient-hero: linear-gradient(135deg, hsl(358 78% 19%), hsl(330 4% 13%));
+    --gradient-card: linear-gradient(145deg, hsl(359 35% 42%), hsl(358 78% 19%));
+    --gradient-dark: linear-gradient(180deg, hsl(330 4% 13%), hsl(359 35% 42%));
+
+    /* Shadows - Red glow */
+    --shadow-premium: 0 20px 40px -10px hsl(0 84% 40% / 0.3);
+    --shadow-card: 0 4px 20px -2px hsl(0 84% 40% / 0.15);
+    --shadow-glow: 0 0 40px hsl(0 75% 46% / 0.4);
+
+    /* Animation variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - Red on black */
+    --background: 330 4% 13%;
+    --foreground: 0 0% 99%;
+
+    --card: 359 35% 42%;
+    --card-foreground: 0 0% 99%;
+
+    --popover: 330 4% 13%;
+    --popover-foreground: 0 0% 99%;
+
+    --primary: 0 84% 40%;
+    --primary-foreground: 0 0% 99%;
+
+    --secondary: 359 35% 42%;
+    --secondary-foreground: 0 0% 99%;
+
+    --muted: 359 35% 42%;
+    --muted-foreground: 300 4% 81%;
+
+    --accent: 0 75% 46%;
+    --accent-foreground: 0 0% 99%;
+
+    --destructive: 358 68% 35%;
+    --destructive-foreground: 0 0% 99%;
+
+    --border: 359 35% 42%;
+    --input: 359 35% 42%;
+    --ring: 0 75% 46%;
+    --sidebar-background: 330 4% 13%;
+    --sidebar-foreground: 0 0% 99%;
+    --sidebar-primary: 0 84% 40%;
+    --sidebar-primary-foreground: 0 0% 99%;
+    --sidebar-accent: 359 35% 42%;
+    --sidebar-accent-foreground: 0 0% 99%;
+    --sidebar-border: 359 35% 42%;
+    --sidebar-ring: 0 75% 46%;
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Debug helper: add the `debug-borders` class to <body> when you want visual borders
+     for layout debugging. By default these are disabled so the site renders cleanly. */
+  .debug-borders * {
+    border: 1px solid hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+
+/* Utility helpers for hero and gradients (used by HeroSection/Navigation) */
+.bg-gradient-hero {
+  background-image: var(--gradient-hero);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  /* darken the hero image for readable white text */
+  background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.6));
+}
+
+/* Services section red-tinted background and card accents */
+.services-section {
+  background-color: hsl(0 8% 94%); /* pale warm background with a red tint */
+}
+
+.services-card {
+  border-color: hsl(var(--primary)) ;
+  border-color: color-mix(in srgb, hsl(var(--primary)) 20%, transparent);
+  box-shadow: 0 6px 20px rgba(186,16,16,0.04);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.services-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(186,16,16,0.12);
+  border-color: hsl(var(--primary));
+}
+
+.services-card .text-primary {
+  color: hsl(var(--primary));
+}
+
+
